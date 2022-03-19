@@ -1,9 +1,16 @@
-package pl.krman.list.of.movies;
+package pl.krman.list.of.movies.dao.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
 public class Movie {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private long id;
     private String title;
     private String genre;
