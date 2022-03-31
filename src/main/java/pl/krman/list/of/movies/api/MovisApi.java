@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.krman.list.of.movies.dao.entity.Movie;
 import pl.krman.list.of.movies.manager.MovieManager;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,7 +20,7 @@ public class MovisApi {
     }
 
     @GetMapping("/all")
-    public Iterable<Movie> getAll(){
+    public List<Movie> getAll(){
         return movieManager.findAll();
     }
 

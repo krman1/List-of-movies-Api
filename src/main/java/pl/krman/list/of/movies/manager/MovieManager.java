@@ -1,8 +1,12 @@
 package pl.krman.list.of.movies.manager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import pl.krman.list.of.movies.dao.MovieRepo;
 import pl.krman.list.of.movies.dao.entity.Movie;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,7 +26,7 @@ public final class MovieManager {
         return movieRepo.findById(id);
     }
 
-    public Iterable<Movie> findAll() {
+    public List<Movie> findAll() {
         return movieRepo.findAll();
     }
 
