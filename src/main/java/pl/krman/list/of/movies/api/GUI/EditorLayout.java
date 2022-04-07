@@ -25,7 +25,7 @@ public class EditorLayout extends VerticalLayout {
         title = new TextField("Title");
         genre = new TextField("Genre");
         director = new TextField("Director");
-        productionYear = new TextField("productionYear");
+        productionYear = new TextField("ProductionYear");
 
         formLayout.add(title, genre, director, productionYear);
 
