@@ -30,6 +30,14 @@ public final class MovieManager {
         return movieRepo.findAll();
     }
 
+    public List<Movie> findAll(String filterText) {
+  //      if (filterText == null || filterText.isEmpty()) {
+            return movieRepo.findAll();
+  //      } else {
+   //         return movieRepo.search(filterText);
+        }
+   // }
+
     public Movie save (Movie movie){
         return movieRepo.save(movie);
     }
