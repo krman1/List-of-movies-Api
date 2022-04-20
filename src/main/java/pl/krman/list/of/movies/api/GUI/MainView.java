@@ -1,6 +1,7 @@
 package pl.krman.list.of.movies.api.GUI;
 
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -8,9 +9,10 @@ import com.vaadin.flow.router.Route;
 import pl.krman.list.of.movies.dao.entity.Movie;
 import pl.krman.list.of.movies.manager.MovieManager;
 
-@Route("test")
+@Route("")
 public class MainView extends VerticalLayout {
 
+    private final MovieForm form;
     Grid<Movie>grid = new Grid<>(Movie.class);
     TextField filterText = new TextField();
 
@@ -23,12 +25,18 @@ public class MainView extends VerticalLayout {
         configureGrid();
         configureFilter();
 
-        add(filterText, grid);
+        form = new MovieForm();
+
+        Div content = new Div(grid, form);
+        content.addClassName("content");
+        content.setSizeFull();
+
+        add(filterText, content);
         updateList();
     }
 
     private void configureFilter() {
-        filterText.setPlaceholder("Filer by genre...");
+        filterText.setPlaceholder("Filer by column");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
         filterText.addValueChangeListener(e -> updateList());

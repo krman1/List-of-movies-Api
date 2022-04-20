@@ -1,11 +1,8 @@
 package pl.krman.list.of.movies.manager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import pl.krman.list.of.movies.dao.MovieRepo;
 import pl.krman.list.of.movies.dao.entity.Movie;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -31,12 +28,12 @@ public final class MovieManager {
     }
 
     public List<Movie> findAll(String filterText) {
-  //      if (filterText == null || filterText.isEmpty()) {
+        if (filterText == null || filterText.isEmpty()) {
             return movieRepo.findAll();
-  //      } else {
-   //         return movieRepo.search(filterText);
+        } else {
+            return movieRepo.search(filterText);
         }
-   // }
+    }
 
     public Movie save (Movie movie){
         return movieRepo.save(movie);
