@@ -13,7 +13,7 @@ public interface MovieRepo extends JpaRepository<Movie, Long> {
 
     @Query("Select m from Movie m " +
             "WHERE m.genre like CONCAT('%', :searchTerm, '%')" +
-            "OR m.director like CONCAT('%', :searchTerm, '%')" +
+            "OR m.title like CONCAT('%', :searchTerm, '%')" +
             "OR m.director like CONCAT('%', :searchTerm, '%')" +
             "OR m.productionYear like CONCAT('%', :searchTerm, '%')")
         List<Movie> search(@Param("searchTerm") String searchTerm);

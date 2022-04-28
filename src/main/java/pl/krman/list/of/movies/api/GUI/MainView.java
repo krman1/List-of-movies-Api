@@ -9,10 +9,10 @@ import com.vaadin.flow.router.Route;
 import pl.krman.list.of.movies.dao.entity.Movie;
 import pl.krman.list.of.movies.manager.MovieManager;
 
-@Route("")
+@Route("start")
 public class MainView extends VerticalLayout {
 
-    private final MovieForm form;
+    MovieForm form;
     Grid<Movie>grid = new Grid<>(Movie.class);
     TextField filterText = new TextField();
 
